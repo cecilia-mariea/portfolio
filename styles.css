@@ -10,6 +10,15 @@ body {
   max-width: 100ch;
   margin-inline: auto;
 
+  header {
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+  h1 {
+    color: oklch(60.32% 0.10156 255.748);
+    font-size: 1.8rem;
+  }
+
   nav {
     display: flex;
     margin: 0.5em;
@@ -41,6 +50,92 @@ body {
         border-bottom-color: var(--color-accent);
         background-color: oklch(from var(--color-accent) 95% 5% h)
       }
+    }
+  }
+
+  form {
+
+    display: grid;
+    grid-template-columns: auto 1fr; 
+    gap: 1em;
+    margin-top: 2.5em;
+
+    label {
+      display: contents;
+      grid-column: 1 / -1;
+    }
+
+      input,
+      textarea {
+      font-family: inherit;
+      }
+
+      button {
+      font-family: inherit;
+      grid-column: 1 / -1;
+      }
+  }
+
+  .projects {
+    margin-top: 2.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+
+  }
+  .projects article {
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    h2 {
+      margin: 0; 
+      font-size: 150%;
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+  }
+
+  section {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em; 
+    h2 {
+      border-bottom: 1px solid oklch(80% 3% 200); 
+      padding-bottom: 0.2em;
+      margin-bottom: 0.6em;
+      font-size: 1.25rem;
+      color: var(--color-accent) 
+    }
+
+    h3 {
+      margin-top: 1.2em;
+      margin-bottom: 0.4em;
+      font-size: 1rem;
+      color: oklch(40.79% 0.06784 255.397)
+    }
+
+    p {
+      margin: 0.4em 0;
+    }
+
+    ul.fun {
+      margin: 0.4em 0 0.8em 1.2em;
+      list-style-type: none;
+    } 
+
+    ul.fun li  {
+      padding-left: 1.8em;
+      position: relative;
+    }
+
+    ul.fun li::before {
+      content: "⭐";
+      position: absolute;
+      left:0 ;
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+
+    strong {
+      color: oklch(40.79% 0.06784 255.397)
     }
   }
 }
