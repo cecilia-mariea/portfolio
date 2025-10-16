@@ -1,6 +1,7 @@
 html {
   --color-accent: oklch(71.988% 0.14851 43.028); 
-  accent-color: var(--color-accent)
+  accent-color: var(--color-accent);
+  --second-color: oklch(50% 0.1 260 / 90%)
 }
 body {
   /* Set line height to 1.5 times the font size
@@ -11,25 +12,30 @@ body {
   margin-inline: auto;
 
   header {
-    text-align: center;
     margin-bottom: 1.5em;
   }
   h1 {
-    color: oklch(60.32% 0.10156 255.748);
+    color: var(--second-color); 
     font-size: 1.8rem;
   }
 
+  label {
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    font-size:80%;
+    font-family: inherit;
+  }
   nav {
+    --border-color: oklch(50% 10% 200 / 40%);
+    border-bottom-color: var(--border-color);
     display: flex;
     margin: 0.5em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid;
 
-    ul {
+    ul,li {
       display: contents;
 
-      li {
-        display: contents;
-      }
     }
 
     a {
@@ -38,17 +44,17 @@ body {
       color: inherit;
       text-align: center;
       padding: 0.5em;
+      border-bottom: 0.4em solid transparent;
 
       &.current {
-        border-bottom: 0.4em solid oklch(80% 3% 200);
+        border-bottom-color: var(--border-color);
         padding-bottom: 0.3em;
       }
 
       &:hover {
-        border-bottom: 0.4em solid oklch(80% 3% 200);
-        padding-bottom: 0.3em;
         border-bottom-color: var(--color-accent);
-        background-color: oklch(from var(--color-accent) 95% 5% h)
+        background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+        padding-bottom: 0.3em;
       }
     }
   }
@@ -65,17 +71,18 @@ body {
       grid-column: 1 / -1;
     }
 
-      input,
-      textarea {
+    input,
+    textarea {
       font-family: inherit;
-      }
+    }
 
-      button {
+    button {
       font-family: inherit;
       grid-column: 1 / -1;
-      }
+    }
   }
 
+    
   .projects {
     margin-top: 2.5em;
     display: grid;
@@ -109,7 +116,7 @@ body {
       margin-top: 1.2em;
       margin-bottom: 0.4em;
       font-size: 1rem;
-      color: oklch(40.79% 0.06784 255.397)
+      color: var(--second-color); 
     }
 
     p {
