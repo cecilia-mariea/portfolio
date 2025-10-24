@@ -83,21 +83,31 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
   if (containerElement == null) {
     throw new Error (`${containerElement} is invalid`)
   }
-  let imgSrc = p.image;
-  if (!imgSrc.startsWith('http')) {
-  imgSrc = `${window.location.origin}/portfolio/${imgSrc.replace(/^\//, '')}`;
-  }
+
   containerElement.innerHTML = '';
+
   for (let p of project) {
+
+    const base = `${window.location.origin}/portfolio/`;
     const article = document.createElement('article');
 
+    // title
     const headingElement = document.createElement(headingLevel)
     headingElement.textContent = p.title;
     article.appendChild(headingElement);
-    article.innerHTML += ` 
-    <img src="${imgSrc}" alt="${p.title}">
-    <p>${p.description}</p>
-    `; // append to innerHTML since we already added the heading
+
+    // image
+    const img = document.createElement('img');
+    img.src = p.image.startsWith('http')
+      ? p.image
+      : base + p.image.replace(/^\//, '');
+    img.alt = p.title;
+    article.appendChild(img);
+     
+    const desc = document.createElement('p');
+    desc.textContent = p.description;
+    article.appendChild(desc);
+
     containerElement.appendChild(article);
   }
 }

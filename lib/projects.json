@@ -2,25 +2,25 @@
   {
     "title": "p53 and MDM2 Dynamic Systems Simulation",
     "year" : 2025,
-    "image": "images/network_diagram.png",
+    "image": "/images/network_diagram.png",
     "description": "This small  python module was written to model the simplified dynamics of p53 autoregulation and ubiquitation by MDM2. It was written for Professor Jeff Hasty's BENG125 during Spring 2025."
   },
   {
     "title": "BENG Senior Design Project: Designer TM Channels",
     "year" : 2024,
-    "image": "images/31Logo.png",
+    "image": "/images/31Logo.png",
     "description": "De novo design of transmembrane proton channels with soluble domain linkers. We aimed to stabalize an adapted Cl-/H+ antiport mechanism in a self-assembling, homooligomeric, minimal transmembrane pore. Presented at BMES @ UCSD 2025 BE Day"
   },
   {
     "title": "MitoLysate",
     "year" : 2023,
-    "image": "images/micrograph.png",
+    "image": "/images/micrograph.png",
     "description": "For developing rapid cryoEM workflows. Determine high-resolution structures within a week."
   },
   {
     "title": "DSC106 Visualizations",
     "year" : 2025,
-    "image": "images/vis.png",
+    "image": "/images/vis.png",
     "description": "Exploratory visualizations of datasets regarding processed groceries, economic indicators of climate change etc. to practice effective visual encodings."
   },
   {
