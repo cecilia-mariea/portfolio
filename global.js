@@ -62,3 +62,51 @@ select.addEventListener('input', function (event) {
 if ("colorScheme" in localStorage) {
     document.documentElement.style.setProperty('color-scheme', localStorage.colorScheme);
 }
+
+// projects page
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+export function renderProjects(project, containerElement, headingLevel = 'h2') {
+  if (containerElement == null) {
+    throw new Error (`${containerElement} is invalid`)
+  }
+  containerElement.innerHTML = '';
+  for (let p of project) {
+    const article = document.createElement('article');
+
+    const headingElement = document.createElement(headingLevel)
+    headingElement.textContent = p.title;
+    article.appendChild(headingElement);
+    article.innerHTML += ` 
+    <img src="${p.image}" alt="${p.title}">
+    <p>${p.description}</p>
+    `; // append to innerHTML since we already added the heading
+    containerElement.appendChild(article);
+  }
+}
+
+export function countProjects(projectsContainer, projectsSelector = 'article', headingLevel = 'h1') {
+  const headerElement = document.createElement('header')
+  const count = projectsContainer.querySelectorAll(projectsSelector).length;
+  const headingElement = document.createElement(headingLevel);
+  headingElement.textContent = `${count} Projects`;
+  document.body.insertBefore(headerElement, projectsContainer);
+  headerElement.appendChild(headingElement);
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`)
+}
