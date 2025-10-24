@@ -83,6 +83,11 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
   if (containerElement == null) {
     throw new Error (`${containerElement} is invalid`)
   }
+  let imgSrc = p.image;
+if (!imgSrc.startsWith('http')) {
+  // Prepend the correct base path for your repo
+  imgSrc = `${window.location.origin}/your-repo-name/${imgSrc.replace(/^\//, '')}`;
+}
   containerElement.innerHTML = '';
   for (let p of project) {
     const article = document.createElement('article');
@@ -91,7 +96,7 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     headingElement.textContent = p.title;
     article.appendChild(headingElement);
     article.innerHTML += ` 
-    <img src="${p.image}" alt="${p.title}">
+    <img src="${imgSrc}" alt="${p.title}">
     <p>${p.description}</p>
     `; // append to innerHTML since we already added the heading
     containerElement.appendChild(article);
