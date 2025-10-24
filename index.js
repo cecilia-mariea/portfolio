@@ -5,7 +5,7 @@ const latestProjects = projects.slice(0, 3);
 
 const projectsContainer = document.querySelector('.projects');
 
-renderProjects(latestProjects, projectsContainer, 'h2');
+renderProjects(latestProjects, projectsContainer, 'h3');
 const githubData = await fetchGitHubData('cecilia-mariea');
 
 const profileStats = document.querySelector('#profile-stats');
