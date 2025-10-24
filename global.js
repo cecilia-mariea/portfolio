@@ -84,10 +84,9 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     throw new Error (`${containerElement} is invalid`)
   }
   let imgSrc = p.image;
-if (!imgSrc.startsWith('http')) {
-  // Prepend the correct base path for your repo
-  imgSrc = `${window.location.origin}/your-repo-name/${imgSrc.replace(/^\//, '')}`;
-}
+  if (!imgSrc.startsWith('http')) {
+  imgSrc = `${window.location.origin}/portfolio/${imgSrc.replace(/^\//, '')}`;
+  }
   containerElement.innerHTML = '';
   for (let p of project) {
     const article = document.createElement('article');
