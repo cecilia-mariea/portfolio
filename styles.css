@@ -175,3 +175,47 @@ body {
     }
   }
 }
+
+.pie {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+ul.legend { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr)); 
+  gap: 0.3em;
+  list-style: none;
+  padding: 0.3em;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.5em;
+  border-color: var(--border-color);
+  margin: 0;
+  flex: 1;
+}
+
+li.legend_entry {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  padding:0.2em;
+}
+
+span.swatch {
+  display: inline-block;
+  width: 1em;
+  aspect-ratio: 1;
+  background-color: var(--color);
+  border-radius: 50%;
+}
+

@@ -16,9 +16,14 @@ let pages = [
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
+// needed to show the same paths on local server preview and github pages
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
     ? "/"                  // Local server
     : "/portfolio/";         // GitHub Pages repo name
+
+export function resolvePath(relativePath) {
+  return `${BASE_PATH}${relativePath.replace(/^\//, '')}`;
+}
 
 for (let p of pages) {
     let url = p.url;
@@ -100,10 +105,17 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     const img = document.createElement('img');
     img.src = p.image.startsWith('http')
       ? p.image
-      : base + p.image.replace(/^\//, '');
+      : resolvePath(p.image)
     img.alt = p.title;
     article.appendChild(img);
-     
+
+    // year
+    const year = document.createElement('small');
+    const fullYearDesc = "Created in " + p.year  + "."
+    year.textContent = fullYearDesc 
+    article.appendChild(year)
+
+    // description  
     const desc = document.createElement('p');
     desc.textContent = p.description;
     article.appendChild(desc);
@@ -117,7 +129,8 @@ export function countProjects(projectsContainer, projectsSelector = 'article', h
   const count = projectsContainer.querySelectorAll(projectsSelector).length;
   const headingElement = document.createElement(headingLevel);
   headingElement.textContent = `${count} Projects`;
-  document.body.insertBefore(headerElement, projectsContainer);
+  const navElem = document.querySelector('nav');
+  navElem.insertAdjacentElement('afterend', headerElement);
   headerElement.appendChild(headingElement);
 }
 
