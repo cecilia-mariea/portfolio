@@ -1,7 +1,8 @@
 html {
   --color-accent: oklch(71.988% 0.14851 43.028); 
   accent-color: var(--color-accent);
-  --second-color: oklch(50% 0.1 260 / 90%)
+  --second-color: oklch(50% 0.1 260 / 90%);
+  --border-color: oklch(50% 10% 200 / 40%);
 }
 body {
   /* Set line height to 1.5 times the font size
@@ -27,7 +28,6 @@ body {
     font-family: inherit;
   }
   nav {
-    --border-color: oklch(50% 10% 200 / 40%);
     border-bottom-color: var(--border-color);
     display: flex;
     margin: 0.5em;
@@ -178,6 +178,7 @@ body {
 
 .pie {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   align-items: center;
 }
@@ -190,25 +191,37 @@ body {
   flex-shrink: 0;
 }
 
+path {
+  transition: 300ms;
+}
+
+svg {
+  &:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+    }
+  }
+}
+
 ul.legend { 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr)); 
-  gap: 0.3em;
-  list-style: none;
-  padding: 0.3em;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 0.5em;
-  border-color: var(--border-color);
-  margin: 0;
   flex: 1;
+  grid-template-columns: repeat(auto-fill, minmax(6em,1fr)); 
+  justify-content: start;
+  row-gap: 0.3em;
+  column-gap:0.8em;
+  list-style: none;
+  padding: 0.5em;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5em;
 }
 
 li.legend_entry {
   display: flex;
+  margin: 0.4em;
+  gap: 0.3em;
   align-items: center;
-  gap: 0.2em;
-  padding:0.2em;
+  white-space: nowrap;
 }
 
 span.swatch {
@@ -217,5 +230,27 @@ span.swatch {
   aspect-ratio: 1;
   background-color: var(--color);
   border-radius: 50%;
+  gap: 0.1em;
 }
 
+.searchBar {
+  display: flex;
+  flex-basis: 100%;
+  padding: 0.5em 0.5em;
+  font-size: 1.5rem;
+  font-family: inherit;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5em;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+path {
+  cursor: pointer;
+}
