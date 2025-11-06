@@ -1,73 +1,73 @@
 [
   {
     "title": "p53 and MDM2 Dynamic Systems Simulation",
-    "year" : 2025,
+    "year": 2025,
     "image": "/images/network_diagram.png",
     "description": "This small  python module was written to model the simplified dynamics of p53 autoregulation and ubiquitation by MDM2. It was written for Professor Jeff Hasty's BENG125 during Spring 2025."
   },
   {
     "title": "BENG Senior Design Project: Designer TM Channels",
-    "year" : 2024,
+    "year": 2024,
     "image": "/images/31Logo.png",
     "description": "De novo design of transmembrane proton channels with soluble domain linkers. We aimed to stabalize an adapted Cl-/H+ antiport mechanism in a self-assembling, homooligomeric, minimal transmembrane pore. Presented at BMES @ UCSD 2025 BE Day"
   },
   {
     "title": "MitoLysate",
-    "year" : 2023,
+    "year": 2023,
     "image": "/images/micrograph.png",
     "description": "For developing rapid cryoEM workflows. Determine high-resolution structures within a week."
   },
   {
     "title": "DSC106 Visualizations",
-    "year" : 2025,
+    "year": 2025,
     "image": "/images/vis.png",
     "description": "Exploratory visualizations of datasets regarding processed groceries, economic indicators of climate change etc. to practice effective visual encodings."
   },
   {
     "title": "Est possimus aut dolores!",
-    "year" : 2023,
+    "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Doloremque, voluptates quidem. Voluptas quod fugiat iusto doloribus doloremque veniam libero illo minus labore eveniet cumque tempora laboriosam voluptatem non, a repellat eos? Laudantium nobis tenetur, totam consequuntur exercitationem veritatis!"
   },
   {
     "title": "Hic inventore ipsa quae.",
-    "year" : 2024,
+    "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Sequi praesentium quaerat enim et veritatis minus ad excepturi quos non, totam odio iusto? Reiciendis quibusdam iste, eligendi iusto dolore cum nobis sequi modi quo nemo voluptatum alias! Distinctio, a."
   },
   {
     "title": "Ipsam quidem distinctio ut.",
-    "year" : 2024,
+    "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Quasi earum deleniti est quisquam alias impedit, eligendi laborum voluptas, aperiam accusamus totam repellat. Quos incidunt facilis tempore cupiditate accusantium, molestias natus dolor maiores est inventore impedit veniam, doloribus voluptas."
   },
   {
     "title": "Dolores alias odio inventore.",
-    "year" : 2024,
+    "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Labore recusandae, animi saepe in aut dicta veniam, quia aliquam maxime ducimus dolores debitis eaque distinctio, vitae quam culpa repudiandae. Tempora tenetur voluptatem sint doloribus consequatur illo reiciendis ex iure!"
   },
   {
     "title": "Vitae corrupti dolores enim?",
-    "year" : 2025,
+    "year": 2025,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Facilis nam, dolorem repudiandae reiciendis at, dolores quaerat omnis natus eligendi reprehenderit quae exercitationem tempore neque enim necessitatibus non molestiae impedit, iure perspiciatis odio. Soluta nemo laboriosam exercitationem earum. Ab."
   },
   {
     "title": "Id harum amet sapiente!",
-    "year" : 2023,
+    "year": 2023,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Officiis voluptates ratione possimus fuga placeat nulla, debitis quas iure inventore nobis natus quo provident dignissimos. Quam soluta voluptatibus modi vel ab dignissimos odit, totam perspiciatis nobis molestiae laudantium. Esse?"
   },
   {
     "title": "Magni asperiores consectetur facilis.",
-    "year" : 2022,
+    "year": 2022,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Eos fugiat delectus sit dolore veritatis laboriosam saepe ullam, esse sint voluptatum neque incidunt, vitae laborum beatae voluptas sed ipsam reiciendis enim eaque deleniti consequuntur ut eligendi. Sit, nisi laborum!"
   },
   {
     "title": "Nam assumenda consequuntur vitae?",
-    "year" : 2025,
+    "year": 2025,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Dolores nostrum voluptatum dolorem ab esse aliquam maxime nam nulla similique saepe? Necessitatibus debitis animi quos dignissimos totam. Reiciendis suscipit consectetur nulla vero quos eligendi atque saepe, magni beatae esse."
   }

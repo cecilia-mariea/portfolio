@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="../styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="../styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects</title>
-</head>
-<body>
-    <div class="pie">    <!--D3 visualization of project creation years-->
+  </head>
+  <body>
+    <div class="pie">
+      <!--D3 visualization of project creation years-->
 
-        <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
-        <ul class="legend"></ul>
-        <input
-            class="searchBar"
-            type="search"
-            aria-label="Search projects"
-            placeholder="🔎Search projects..."
-        />
+      <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
+      <ul class="legend"></ul>
+      <input
+        class="searchBar"
+        type="search"
+        aria-label="Search projects"
+        placeholder="🔎Search projects..."
+      />
     </div>
 
     <!--library of projects-->
-    <div class="projects">    </div>
+    <div class="projects"></div>
 
     <!-- Load javascript -->
     <script type="module" src="projects.js"></script>
     <script type="module" src="../global.js"></script>
-</body>
+  </body>
 </html>

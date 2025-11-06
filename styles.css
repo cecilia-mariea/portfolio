@@ -1,5 +1,5 @@
 html {
-  --color-accent: oklch(71.988% 0.14851 43.028); 
+  --color-accent: oklch(71.988% 0.14851 43.028);
   accent-color: var(--color-accent);
   --second-color: oklch(50% 0.1 260 / 90%);
   --border-color: oklch(50% 10% 200 / 40%);
@@ -16,15 +16,15 @@ body {
     margin-bottom: 1.5em;
   }
   h1 {
-    color: var(--second-color); 
+    color: var(--second-color);
     font-size: 1.8rem;
   }
 
   label {
-    position:absolute;
-    top:1rem;
-    right:1rem;
-    font-size:80%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
     font-family: inherit;
   }
   nav {
@@ -33,9 +33,9 @@ body {
     margin: 0.5em;
     border-bottom: 1px solid;
 
-    ul,li {
+    ul,
+    li {
       display: contents;
-
     }
 
     a {
@@ -74,9 +74,8 @@ body {
   }
 
   form {
-
     display: grid;
-    grid-template-columns: auto 1fr; 
+    grid-template-columns: auto 1fr;
     gap: 1em;
     margin-top: 2.5em;
 
@@ -96,23 +95,21 @@ body {
     }
   }
 
-    
   .projects {
     margin-top: 2.5em;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 1em;
-
   }
-    .projects article img {
+  .projects article img {
     width: 100%;
-    height: 200px;     /* or clamp() for responsiveness */
+    height: 200px; /* or clamp() for responsiveness */
     object-fit: cover;
-    display: block;    
-    transition: transform .3s ease;
+    display: block;
+    transition: transform 0.3s ease;
   }
   .projects article:hover img {
-  transform: scale(1.05);
+    transform: scale(1.05);
   }
 
   .projects article {
@@ -122,30 +119,29 @@ body {
     grid-template-rows: subgrid;
     grid-row: span 3;
     h2 {
-      margin: 0; 
+      margin: 0;
       font-size: 150%;
       line-height: 1.1;
       text-wrap: balance;
     }
-
   }
 
   section {
     margin-top: 2.5em;
-    margin-bottom: 2.5em; 
+    margin-bottom: 2.5em;
     h2 {
-      border-bottom: 1px solid oklch(80% 3% 200); 
+      border-bottom: 1px solid oklch(80% 3% 200);
       padding-bottom: 0.2em;
       margin-bottom: 0.6em;
       font-size: 1.25rem;
-      color: var(--color-accent) 
+      color: var(--color-accent);
     }
 
     h3 {
       margin-top: 1.2em;
       margin-bottom: 0.4em;
       font-size: 1rem;
-      color: var(--second-color); 
+      color: var(--second-color);
     }
 
     p {
@@ -155,9 +151,9 @@ body {
     ul.fun {
       margin: 0.4em 0 0.8em 1.2em;
       list-style-type: none;
-    } 
+    }
 
-    ul.fun li  {
+    ul.fun li {
       padding-left: 1.8em;
       position: relative;
     }
@@ -165,13 +161,13 @@ body {
     ul.fun li::before {
       content: "⭐";
       position: absolute;
-      left:0 ;
+      left: 0;
       font-size: 1em;
       line-height: 1.5em;
     }
 
     strong {
-      color: oklch(40.79% 0.06784 255.397)
+      color: oklch(40.79% 0.06784 255.397);
     }
   }
 }
@@ -182,7 +178,6 @@ body {
   gap: 1.5rem;
   align-items: center;
 }
-
 
 #projects-pie-plot {
   max-width: 20em;
@@ -197,19 +192,19 @@ path {
 
 svg {
   &:has(path:hover) {
-  path:not(:hover) {
-    opacity: 0.5;
+    path:not(:hover) {
+      opacity: 0.5;
     }
   }
 }
 
-ul.legend { 
+ul.legend {
   display: grid;
   flex: 1;
-  grid-template-columns: repeat(auto-fill, minmax(6em,1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
   justify-content: start;
   row-gap: 0.3em;
-  column-gap:0.8em;
+  column-gap: 0.8em;
   list-style: none;
   padding: 0.5em;
   border: 2px solid var(--border-color);
@@ -253,4 +248,8 @@ span.swatch {
 
 path {
   cursor: pointer;
+}
+
+.gridlines {
+  opacity: 0.2;
 }
