@@ -253,3 +253,116 @@ path {
 .gridlines {
   opacity: 0.2;
 }
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25em 1em;
+  margin: 0;
+  padding: 0.2em 0.5em;
+  font-family: inherit;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+  dt {
+    font-weight: 600;
+    color: #222;
+    margin: 0.5em 0;
+  }
+  dd {
+    margin: 0;
+    font-weight: 500;
+    color: #222;
+  }
+}
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 0.75em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1em 1.5em;
+  border-radius: 0.5em;
+  color: #222;
+  font-family: inherit;
+  line-height: 1.4em;
+  font-size: 0.9em;
+  max-width: 500px;
+  pointer-events: auto;
+  z-index: 1000;
+}
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(6em, 1fr)
+  ); /* labels on left, values on right */
+  align-items: center;
+  gap: 0.5em 0.5em;
+  width: 100%;
+  padding: 1em 1em;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 0.75em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #222;
+  box-sizing: border-box;
+}
+
+.stats dt {
+  margin: 0;
+  font-weight: 500;
+  color: #666;
+}
+
+.stats dd {
+  margin: 0;
+  font-weight: 600;
+  color: #111;
+}
+
+.stats abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted #aaa;
+  cursor: help;
+}
+
+.stats dd:hover {
+  color: #007acc;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: orange;
+}
