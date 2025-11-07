@@ -1,9 +1,14 @@
 html {
-  --color-accent: oklch(71.988% 0.14851 43.028);
+  --color-accent: oklch(44.944% 0.12602 252.141);
   accent-color: var(--color-accent);
-  --second-color: oklch(50% 0.1 260 / 90%);
-  --border-color: oklch(50% 10% 200 / 40%);
+  --color-secondary: oklch(65% 0.17 30);
+  --box-background: rgba(255 255 255 / 85%);
+  --color-surface: colormix(in oklch(), canvas, var(--box-background) 85%);
+  --color-surface-blur: blur(8px);
+  --border-color: oklch(80% 3% 200);
+  --shadow-elev: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 body {
   /* Set line height to 1.5 times the font size
 	   and use the OS’s UI font as the website font
@@ -11,13 +16,124 @@ body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: auto;
+  transition: background-color 0.4s ease, color 0.4s ease;
 
-  header {
-    margin-bottom: 1.5em;
+  .nav,
+  .stats,
+  .tooltip,
+  section {
+    background-color: var(--color-surface);
+    backdrop-filter: var(--color-surface-blur);
+    box-shadow: var(--shadow-elev);
+    border-radius: 0.5em;
+    padding: 1em 1em;
+    border: 1px solid var(--border-color);
   }
-  h1 {
-    color: var(--second-color);
-    font-size: 1.8rem;
+  #headshot {
+    box-shadow: var(--shadow-elev);
+    border-radius: 0.5em;
+    backdrop-filter: var(--color-surface-blur);
+  }
+  h1,
+  h2,
+  h3 {
+    color: var(--color-accent);
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration-color: color-mix(in srgb, var(--color-accent) white 40%);
+    transition: color 0.3 ease;
+  }
+  a:hover {
+    color: var(--color-secondary);
+  }
+  nav {
+    background-color: var(--color-surface);
+    backdrop-filter: var(--color-surface-blur);
+    box-shadow: var(--shadow-elev);
+    border-radius: 0.5em;
+    padding: 0.5em 0.5em;
+    border: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.5em;
+  }
+  nav a {
+    transition: background-color 0.3s ease, border-bottom-color 0.3s ease,
+      padding-bottom 0.3s ease;
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: 0.5em;
+    border-bottom: 0.4em solid transparent;
+  }
+  nav a.current {
+    border-bottom-color: var(--color-accent);
+    padding-bottom: 0.3em;
+    color: var(--color-accent);
+  }
+  nav a:hover {
+    background-color: color-mix(in oklch(), var(--color-accent), canvas 85%);
+    border-bottom-color: var(--color-secondary);
+    padding-bottom: 0.3em;
+  }
+  nav ul,
+  nav li {
+    display: contents;
+  }
+  /* github profile stats on homepage */
+  #profile-stats {
+    margin-top: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+    gap: 1em;
+    border-radius: 0.5em;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-elev);
+    background-color: var(--color-surface);
+    padding: 1em 1em;
+    backdrop-filter: blur(8px);
+  }
+  /* Metadata stats */
+
+  .stats {
+    background-color: var(--color-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5em;
+    box-shadow: var(--shadow-elev);
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(6em, 1fr)
+    ); /* labels on left, values on right */
+    align-items: center;
+    gap: 0.5em 0.5em;
+    width: 100%;
+    padding: 1em 1em;
+    backdrop-filter: blur(8px);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+
+  .stats dt {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .stats dd {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .stats abbr {
+    text-decoration: none;
+    border-bottom: 1px dotted #aaa;
+    cursor: help;
+  }
+
+  .stats dd:hover {
+    color: var(--color-secondary);
   }
 
   label {
@@ -26,37 +142,6 @@ body {
     right: 1rem;
     font-size: 80%;
     font-family: inherit;
-  }
-  nav {
-    border-bottom-color: var(--border-color);
-    display: flex;
-    margin: 0.5em;
-    border-bottom: 1px solid;
-
-    ul,
-    li {
-      display: contents;
-    }
-
-    a {
-      flex: 1;
-      text-decoration: none;
-      color: inherit;
-      text-align: center;
-      padding: 0.5em;
-      border-bottom: 0.4em solid transparent;
-
-      &.current {
-        border-bottom-color: var(--border-color);
-        padding-bottom: 0.3em;
-      }
-
-      &:hover {
-        border-bottom-color: var(--color-accent);
-        background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-        padding-bottom: 0.3em;
-      }
-    }
   }
 
   dl {
@@ -84,27 +169,34 @@ body {
       grid-column: 1 / -1;
     }
 
+    buttom,
     input,
     textarea {
+      border-radius: 0.5em;
+      border: 1px solid var(--border-color);
+      padding: 0.5em 0.75em;
+      background: var(--color-surface);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
       font-family: inherit;
     }
-
-    button {
-      font-family: inherit;
-      grid-column: 1 / -1;
+    button:hover {
+      border-color: var(--color-accent);
+      background-color: color-mix(in oklch, var(--color-accent), white 85%);
     }
   }
 
   .projects {
     margin-top: 2.5em;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
     gap: 1em;
+    padding: 2em 0;
   }
   .projects article img {
     width: 100%;
     height: 200px; /* or clamp() for responsiveness */
     object-fit: cover;
+    border-radius: 0.5em;
     display: block;
     transition: transform 0.3s ease;
   }
@@ -113,11 +205,19 @@ body {
   }
 
   .projects article {
+    backdrop-filter: blur(8px);
+    border-radius: 0.5em;
+    box-shadow: 0 4px 12px var(--shadow-elev);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 0.75em;
     grid-template-rows: subgrid;
     grid-row: span 3;
+    padding: 1em 1em;
+    background-color: var(--color-surface);
+
     h2 {
       margin: 0;
       font-size: 150%;
@@ -125,52 +225,40 @@ body {
       text-wrap: balance;
     }
   }
+  /* Resume */
 
   section {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
-    h2 {
-      border-bottom: 1px solid oklch(80% 3% 200);
-      padding-bottom: 0.2em;
-      margin-bottom: 0.6em;
-      font-size: 1.25rem;
-      color: var(--color-accent);
-    }
+  }
+  p {
+    margin: 0.4em 0;
+  }
 
-    h3 {
-      margin-top: 1.2em;
-      margin-bottom: 0.4em;
-      font-size: 1rem;
-      color: var(--second-color);
-    }
+  ul.fun {
+    margin: 0.4em 0 0.8em 0.8em;
+    list-style-type: none;
+  }
 
-    p {
-      margin: 0.4em 0;
-    }
+  ul.fun li {
+    padding-left: 1.8em;
+    position: relative;
+  }
 
-    ul.fun {
-      margin: 0.4em 0 0.8em 1.2em;
-      list-style-type: none;
-    }
+  ul.fun li::before {
+    color: var(--color-secondary);
+    content: "★";
+    position: absolute;
+    left: 0;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
 
-    ul.fun li {
-      padding-left: 1.8em;
-      position: relative;
-    }
-
-    ul.fun li::before {
-      content: "⭐";
-      position: absolute;
-      left: 0;
-      font-size: 1em;
-      line-height: 1.5em;
-    }
-
-    strong {
-      color: oklch(40.79% 0.06784 255.397);
-    }
+  strong {
+    color: color-mix(in srgb, var(--color-accent) black 20%);
   }
 }
+/* Pie chart, legend, search */
 
 .pie {
   display: flex;
@@ -199,6 +287,10 @@ svg {
 }
 
 ul.legend {
+  background-color: var(--color-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5em;
+  box-shadow: var(--shadow-elev);
   display: grid;
   flex: 1;
   grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
@@ -207,8 +299,6 @@ ul.legend {
   column-gap: 0.8em;
   list-style: none;
   padding: 0.5em;
-  border: 2px solid var(--border-color);
-  border-radius: 0.5em;
 }
 
 li.legend_entry {
@@ -229,17 +319,19 @@ span.swatch {
 }
 
 .searchBar {
+  background-color: var(--color-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5em;
+  box-shadow: var(--shadow-elev);
   display: flex;
   flex-basis: 100%;
   padding: 0.5em 0.5em;
   font-size: 1.5rem;
   font-family: inherit;
-  border: 2px solid var(--border-color);
-  border-radius: 0.5em;
 }
 
 .selected {
-  --color: oklch(60% 45% 0) !important;
+  --color: var(--color-secondary) !important;
 
   &:is(path) {
     fill: var(--color);
@@ -250,10 +342,7 @@ path {
   cursor: pointer;
 }
 
-.gridlines {
-  opacity: 0.2;
-}
-
+/* Tooltip styles */
 dl.info {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -265,13 +354,11 @@ dl.info {
   transition-property: opacity, visibility;
   dt {
     font-weight: 600;
-    color: #222;
     margin: 0.5em 0;
   }
   dd {
     margin: 0;
     font-weight: 500;
-    color: #222;
   }
 }
 dl.info[hidden]:not(:hover, :focus-within) {
@@ -281,21 +368,24 @@ dl.info[hidden]:not(:hover, :focus-within) {
 
 .tooltip {
   position: fixed;
-  top: 1em;
-  left: 1em;
+  bottom: 1em;
+  right: 1em;
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(5px);
-  border-radius: 0.75em;
+  border-radius: 0.5em;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1em 1.5em;
-  border-radius: 0.5em;
-  color: #222;
   font-family: inherit;
   line-height: 1.4em;
   font-size: 0.9em;
   max-width: 500px;
   pointer-events: auto;
   z-index: 1000;
+}
+
+/* Scatterplot styles */
+.gridlines {
+  opacity: 0.2;
 }
 circle {
   transition: 200ms;
@@ -305,48 +395,6 @@ circle {
 
 circle:hover {
   transform: scale(1.5);
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(6em, 1fr)
-  ); /* labels on left, values on right */
-  align-items: center;
-  gap: 0.5em 0.5em;
-  width: 100%;
-  padding: 1em 1em;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border-radius: 0.75em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: inherit;
-  font-size: 0.9rem;
-  color: #222;
-  box-sizing: border-box;
-}
-
-.stats dt {
-  margin: 0;
-  font-weight: 500;
-  color: #666;
-}
-
-.stats dd {
-  margin: 0;
-  font-weight: 600;
-  color: #111;
-}
-
-.stats abbr {
-  text-decoration: none;
-  border-bottom: 1px dotted #aaa;
-  cursor: help;
-}
-
-.stats dd:hover {
-  color: #007acc;
 }
 
 @keyframes marching-ants {
@@ -364,5 +412,5 @@ circle:hover {
 }
 
 circle.selected {
-  fill: orange;
+  fill: var(--color-secondary);
 }
