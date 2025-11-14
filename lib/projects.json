@@ -24,16 +24,16 @@
     "description": "Exploratory visualizations of datasets regarding processed groceries, economic indicators of climate change etc. to practice effective visual encodings."
   },
   {
-    "title": "Est possimus aut dolores!",
-    "year": 2023,
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Doloremque, voluptates quidem. Voluptas quod fugiat iusto doloribus doloremque veniam libero illo minus labore eveniet cumque tempora laboriosam voluptatem non, a repellat eos? Laudantium nobis tenetur, totam consequuntur exercitationem veritatis!"
+    "title": "Boston Bike Traffic",
+    "year": 2025,
+    "image": "/images/bike-traffic.png",
+    "description": "Interactive map for visualizing the bike traffic in Boston and Cambridge. Includes flow of traffic, bike paths, and bike stations, filtered by time of day across 2022. Built with d3"
   },
   {
-    "title": "Hic inventore ipsa quae.",
-    "year": 2024,
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Sequi praesentium quaerat enim et veritatis minus ad excepturi quos non, totam odio iusto? Reiciendis quibusdam iste, eligendi iusto dolore cum nobis sequi modi quo nemo voluptatum alias! Distinctio, a."
+    "title": "US Land Surface Temperature",
+    "year": 2025,
+    "image": "/images/lst.png",
+    "description": "Interactive visualization for visualizing the land surface temperature across a quarter of 2024 in the contiguous US. Built with d3."
   },
   {
     "title": "Ipsam quidem distinctio ut.",
@@ -49,7 +49,7 @@
   },
   {
     "title": "Vitae corrupti dolores enim?",
-    "year": 2025,
+    "year": 2022,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Facilis nam, dolorem repudiandae reiciendis at, dolores quaerat omnis natus eligendi reprehenderit quae exercitationem tempore neque enim necessitatibus non molestiae impedit, iure perspiciatis odio. Soluta nemo laboriosam exercitationem earum. Ab."
   },
@@ -67,7 +67,7 @@
   },
   {
     "title": "Nam assumenda consequuntur vitae?",
-    "year": 2025,
+    "year": 2024,
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Dolores nostrum voluptatum dolorem ab esse aliquam maxime nam nulla similique saepe? Necessitatibus debitis animi quos dignissimos totam. Reiciendis suscipit consectetur nulla vero quos eligendi atque saepe, magni beatae esse."
   }
