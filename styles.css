@@ -94,8 +94,8 @@ body {
     padding: 1em 1em;
     backdrop-filter: blur(8px);
   }
-  /* Metadata stats */
 
+  /* Metadata stats */
   .stats {
     background-color: var(--color-surface);
     border: 1px solid var(--border-color);
@@ -136,7 +136,17 @@ body {
     color: var(--color-secondary);
   }
 
-  label {
+  div#filter {
+    flex: 1;
+    align-items: baseline;
+    padding: 1em;
+    gap: 0.25em;
+    input {
+      width: 81%;
+      accent-color: var(--color-secondary);
+    }
+  }
+  label.color-scheme {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -388,9 +398,12 @@ dl.info[hidden]:not(:hover, :focus-within) {
   opacity: 0.2;
 }
 circle {
-  transition: 200ms;
+  transition: all 200ms, r calc(var(--r) * 100ms);
   transform-origin: center;
   transform-box: fill-box;
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -413,4 +426,65 @@ circle:hover {
 
 circle.selected {
   fill: var(--color-secondary);
+}
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+    display: grid;
+    small {
+      font-size: 10px;
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+  }
+
+  dd {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    align-content: start;
+    gap: 0.15em;
+    height: max-content;
+  }
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
 }
