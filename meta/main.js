@@ -285,7 +285,6 @@ function updateScatterPlot(data, commits) {
       d3.select(event.currentTarget).style("fill-opacity", 1); // Full opacity on hover
       renderTooltipContent(commit);
       updateTooltipVisibility(true);
-      updateTooltipPosition(event);
     })
     .on("mouseleave", (event) => {
       d3.select(event.currentTarget).style("fill-opacity", 0.7);
@@ -311,6 +310,7 @@ function renderTooltipContent(commit) {
   });
   lines.textContent = commit.totalLines;
 }
+
 function updateTooltipVisibility(isVisible) {
   const tooltip = document.getElementById("commit-tooltip");
   tooltip.hidden = !isVisible;
